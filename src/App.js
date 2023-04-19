@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import { addToCart } from "./redux/action";
+import { addToCart, removeFromCart, resetCart } from "./redux/action";
 import { useDispatch } from "react-redux";
 
 
@@ -19,6 +19,8 @@ function App() {
       <h1>Shopping Cart</h1>
       <p>{product.name} (${product.price})</p>
       <button onClick={() => dispatch(addToCart(product))}>Add to cart</button>
+      <button onClick={() => dispatch(removeFromCart())}>Remove from cart</button>
+      <button onClick={() => dispatch(resetCart())}>Reset cart</button>
     </div>
   );
 }
