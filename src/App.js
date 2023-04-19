@@ -1,10 +1,12 @@
 import Header from "./components/Header";
-import { addToCart, removeFromCart, resetCart } from "./redux/action";
-import { useDispatch } from "react-redux";
-
+import { addToCart, removeFromCart, resetCart } from "./redux/cartAction";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "./redux/productAction";
 
 function App() {
   const dispatch = useDispatch();
+  const productData = useSelector(state => state.productData);
+  console.log("🚀 ~ file: App.js:10 ~ App ~ productData:", productData)
 
   const product = {
     name: "NVIDIA GTX 4090",
@@ -21,6 +23,8 @@ function App() {
       <button onClick={() => dispatch(addToCart(product))}>Add to cart</button>
       <button onClick={() => dispatch(removeFromCart())}>Remove from cart</button>
       <button onClick={() => dispatch(resetCart())}>Reset cart</button>
+
+      <button onClick={() => dispatch(fetchProducts())}>Fetch Products</button>
     </div>
   );
 }
