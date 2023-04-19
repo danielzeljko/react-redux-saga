@@ -1,3 +1,4 @@
+import Header from "./components/Header";
 import { addToCart } from "./redux/action";
 import { useDispatch } from "react-redux";
 
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <h1>Shopping Cart</h1>
       <p>{product.name} (${product.price})</p>
       <button onClick={() => dispatch(addToCart(product))}>Add to cart</button>

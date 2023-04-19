@@ -5,8 +5,8 @@ export const cartData = (data = [], action) => {
 
     switch (action.type) {
         case ADD_TO_CART:
-            return data    
+            return [action.data, ...data];   
         default:
-            return "no matching action provided"
+            return data;
     }
 }
