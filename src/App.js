@@ -25,6 +25,15 @@ function App() {
       <button onClick={() => dispatch(resetCart())}>Reset cart</button>
 
       <button onClick={() => dispatch(fetchProducts())}>Fetch Products</button>
+
+      <hr />
+
+      <h2>Fetched Products</h2>
+      {productData.map(product => <div>
+        <h3>{product.title}</h3>
+        <p>{product.description}</p>
+        <p>${product.price}</p>
+      </div>)}
     </div>
   );
 }
